@@ -65,11 +65,139 @@
 //
 
 // =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// YOUR CODE BELOW
 // =============================================================================
 
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
+
+void printMenu() {
+    cout << "\n============================\n";
+    cout << "     SIMPLE CALCULATOR\n";
+    cout << "============================\n";
+    cout << "1. Addition\n";
+    cout << "2. Subtraction\n";
+    cout << "3. Multiplication\n";
+    cout << "4. Division\n";
+    cout << "5. Modulus\n";
+    cout << "6. Exponentiation\n";
+    cout << "7. Quit\n";
+    cout << "Select an operation (1-7): ";
+}
+
+void add() {
+    double num1, num2;
+    cout << "Enter first number : ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    double result = num1 + num2;
+    cout << "Result: " << num1 << " + " << num2 << " = " << result << endl;
+}
+
+void subtract() {
+    double num1, num2;
+    cout << "Enter first number : ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    double result = num1 - num2;
+    cout << "Result: " << num1 << " - " << num2 << " = " << result << endl;
+}
+
+void multiply() {
+    double num1, num2;
+    cout << "Enter first number : ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    double result = num1 * num2;
+    cout << "Result: " << num1 << " * " << num2 << " = " << result << endl;
+}
+
+void divide() {
+    double num1, num2;
+    cout << "Enter first number : ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    if (num2 == 0) {
+        cout << "Error: Cannot divide by zero." << endl;
+    } else {
+        double result = num1 / num2;
+        cout << "Result: " << num1 << " / " << num2 << " = " 
+             << fixed << setprecision(2) << result << endl;
+    }
+}
+
+void modulus() {
+    int num1, num2;
+    cout << "Enter first number : ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    if (num2 == 0) {
+        cout << "Error: Cannot perform modulus with zero." << endl;
+    } else {
+        int result = num1 % num2;
+        cout << "Result: " << num1 << " % " << num2 << " = " << result << endl;
+    }
+}
+
+void exponentiate() {
+    double base, exponent;
+    cout << "Enter base number      : ";
+    cin >> base;
+    cout << "Enter exponent (power) : ";
+    cin >> exponent;
+    
+    double result = pow(base, exponent);
+    cout << "Result: " << base << " ^ " << exponent << " = " << result << endl;
+}
+
+int main() {
+    int choice;
+    
+    cout << "Welcome to Simple Calculator!" << endl;
+    
+    while (true) {
+        printMenu();
+        cin >> choice;
+        
+        switch (choice) {
+            case 1:
+                add();
+                break;
+            case 2:
+                subtract();
+                break;
+            case 3:
+                multiply();
+                break;
+            case 4:
+                divide();
+                break;
+            case 5:
+                modulus();
+                break;
+            case 6:
+                exponentiate();
+                break;
+            case 7:
+                cout << "Thank you for using the Calculator. Goodbye!" << endl;
+                return 0;
+            default:
+                cout << "Invalid choice! Please select 1-7." << endl;
+        }
+    }
+    
+    return 0;
+}
 
